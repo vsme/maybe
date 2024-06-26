@@ -9,7 +9,12 @@ zh:
       index:
         change: 更改
         date: 日期
+        new_entry:
+        no_valuations:
+        valuations:
         value: 价值
+      loading:
+        loading:
       update:
         success: 估值已更新
       valuation:
