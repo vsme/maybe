@@ -4,36 +4,36 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'i18n/tasks'
+require 'open3'
 
 module I18nTasksSync
   def self.add_missing_keys
     puts "Adding missing keys..."
-    begin
-      system('bundle exec i18n-tasks add-missing --nil-value')
-      raise 'Add missing keys failed' unless $?.success?
-    rescue => e
-      puts "Error adding missing keys: #{e.message}"
+    stdout, stderr, status = Open3.capture3('bundle exec i18n-tasks add-missing --nil-value')
+    if status.success?
+      puts "Successfully added missing keys."
+    else
+      raise "Add missing keys failed: #{stderr}"
     end
   end
 
   def self.remove_unused_keys
     puts "Removing unused keys..."
-    begin
-      system('yes | bundle exec i18n-tasks remove-unused')
-      raise 'Remove unused keys failed' unless $?.success?
-    rescue => e
-      puts "Error removing unused keys: #{e.message}"
+    stdout, stderr, status = Open3.capture3('yes | bundle exec i18n-tasks remove-unused')
+    if status.success?
+      puts "Successfully removed unused keys."
+    else
+      raise "Remove unused keys failed: #{stderr}"
     end
   end
 
   def self.auto_translate_missing_keys
     puts "Translating missing keys..."
-    begin
-      # 使用 OpenAI 进行翻译
-      system('bundle exec i18n-tasks translate-missing --from=en --backend=openai')
-      raise 'Auto translate missing keys failed' unless $?.success?
-    rescue => e
-      puts "Error translating missing keys: #{e.message}"
+    stdout, stderr, status = Open3.capture3('bundle exec i18n-tasks translate-missing --from=en --backend=openai')
+    if status.success?
+      puts "Successfully translated missing keys."
+    else
+      raise "Auto translate missing keys failed: #{stderr}"
     end
   end
 end
