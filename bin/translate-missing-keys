@@ -8,24 +8,41 @@ require 'i18n/tasks'
 module I18nTasksSync
   def self.add_missing_keys
     puts "Adding missing keys..."
-    system('bundle exec i18n-tasks add-missing --nil-value')
+    begin
+      system('bundle exec i18n-tasks add-missing --nil-value')
+      raise 'Add missing keys failed' unless $?.success?
+    rescue => e
+      puts "Error adding missing keys: #{e.message}"
+    end
   end
 
   def self.remove_unused_keys
     puts "Removing unused keys..."
-    system('yes | bundle exec i18n-tasks remove-unused')
+    begin
+      system('yes | bundle exec i18n-tasks remove-unused')
+      raise 'Remove unused keys failed' unless $?.success?
+    rescue => e
+      puts "Error removing unused keys: #{e.message}"
+    end
   end
 
   def self.auto_translate_missing_keys
     puts "Translating missing keys..."
-    system('bundle exec i18n-tasks translate-missing --from=en')
-    # or backend open ai
-    # system('bundle exec i18n-tasks translate-missing --from=en --backend=openai')
+    begin
+      # 使用 OpenAI 进行翻译
+      system('bundle exec i18n-tasks translate-missing --from=en --backend=openai')
+      raise 'Auto translate missing keys failed' unless $?.success?
+    rescue => e
+      puts "Error translating missing keys: #{e.message}"
+    end
   end
 end
 
-I18nTasksSync.add_missing_keys
-I18nTasksSync.remove_unused_keys
-I18nTasksSync.auto_translate_missing_keys
-
-puts "Translation files have been synchronized and translated."
+begin
+  I18nTasksSync.add_missing_keys
+  I18nTasksSync.remove_unused_keys
+  I18nTasksSync.auto_translate_missing_keys
+  puts "Translation files have been synchronized and translated."
+rescue => e
+  puts "An error occurred during the I18nTasksSync process: #{e.message}"
+end

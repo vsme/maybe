@@ -9,7 +9,12 @@ zh:
       index:
         change: 更改
         date: 日期
+        new_entry: 新条目
+        no_valuations: 此账户尚无估值
+        valuations: 价值历史
         value: 价值
+      loading:
+        loading: 正在加载历史记录...
       update:
         success: 估值已更新
       valuation:
