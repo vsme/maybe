@@ -1,0 +1,69 @@
+---
+zh:
+  account:
+    entries:
+      create:
+        success: "%{name}已创建"
+      destroy:
+        success: 条目已删除
+      empty:
+        description: 尝试添加条目、编辑筛选器或精确搜索
+        title: 未找到条目
+      entryables:
+        transaction:
+          show:
+            account_label: 账户
+            account_placeholder: 选择一个账户
+            additional: 附加
+            category_label: 类别
+            category_placeholder: 选择一个类别
+            date_label: 日期
+            delete: 删除
+            delete_subtitle: 此操作将永久删除交易，影响您的历史余额，且无法撤销
+            delete_title: 删除交易
+            exclude_subtitle: 此操作将排除该交易不会出现在任何应用功能或分析中
+            exclude_title: 排除交易
+            merchant_label: 商家
+            merchant_placeholder: 选择一个商家
+            name_label: 名称
+            note_label: 备注
+            note_placeholder: 输入备注
+            overview: 概览
+            settings: 设置
+            tags_label: 选择一个或多个标签
+          transaction:
+            remove_transfer: 移除转账
+            remove_transfer_body: 此操作将从该交易中移除转账
+            remove_transfer_confirm: 确认
+        valuation:
+          form:
+            cancel: 取消
+          valuation:
+            confirm_accept: 删除条目
+            confirm_body_html: "<p>删除此条目将从帐户历史记录中移除，这将影响您帐户的不同部分。这包括净值和帐户图表。</p></br><p>您唯一能够重新添加此条目的方式是通过手动输入一个新条目</p>"
+            confirm_title: 删除条目？
+            delete_entry: 删除条目
+            edit_entry: 编辑条目
+            no_change: 无更改
+            start_balance: 初始余额
+            value_update: 数值更新
+      loading:
+        loading: 正在加载条目...
+      selection_bar:
+        mark_transfers: 标记为转账？
+        mark_transfers_confirm: 标记为转账
+        mark_transfers_message: 通过将交易标记为转账，它们将不再计入收入或支出计算中
+      transactions:
+        new: 新交易
+        no_transactions: 此账户尚无交易记录
+        transaction: 交易
+        transactions: 交易记录
+      update:
+        success: 条目已更新
+      valuations:
+        change: 更改
+        date: 日期
+        new_entry: 新条目
+        no_valuations: 此账户尚无估值记录
+        valuations: 数值历史
+        value: 数值

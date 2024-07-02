@@ -1,0 +1,5 @@
+---
+zh:
+  account:
+    transfer:
+      name: 从%{from_account}转账至%{to_account}

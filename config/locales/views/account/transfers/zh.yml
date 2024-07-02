@@ -24,4 +24,3 @@ zh:
         remove_body: 这不会删除基础交易。它只会移除转账。
         remove_confirm: 确认
         remove_title: 移除转账？
-        transfer_name: 从%{from_account}转到%{to_account}
