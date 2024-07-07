@@ -15,6 +15,7 @@ zh:
             account_label: 账户
             account_placeholder: 选择一个账户
             additional: 附加
+            amount: 金额
             category_label: 类别
             category_placeholder: 选择一个类别
             date_label: 日期
@@ -26,6 +27,7 @@ zh:
             merchant_label: 商家
             merchant_placeholder: 选择一个商家
             name_label: 名称
+            nature: 交易类型
             note_label: 备注
             note_placeholder: 输入备注
             overview: 概览
